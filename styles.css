@@ -356,11 +356,59 @@ h3 {
     text-align: center;
 }
 
-.coupon-image, .treatment-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
+.coupon-badge {
+    background: linear-gradient(45deg, #dc2626, #ea580c);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 200px;
+    margin: 0 auto;
+}
+
+.coupon-text {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.coupon-subtext {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.treatment-visual {
+    text-align: center;
+    background: #f9fafb;
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.exterminator-icon {
+    font-size: 4rem;
+    margin-bottom: 15px;
+}
+
+.treatment-caption {
+    color: #374151;
+    font-weight: 500;
+    margin: 0;
+}
+
+.guarantee-icon-svg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.guarantee-icon-svg svg {
+    max-width: 80px;
+    height: auto;
 }
 
 .tips-grid {
@@ -614,9 +662,16 @@ h3 {
     margin-bottom: 10px;
 }
 
-.safety-icon img {
-    max-width: 60px;
-    height: auto;
+.safety-badge {
+    font-size: 2rem;
+    background: #f3f4f6;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
 }
 
 .safety-item span {
@@ -649,9 +704,30 @@ h3 {
     margin-bottom: 20px;
 }
 
-.award-logo img {
-    max-width: 120px;
-    height: auto;
+.award-badge {
+    background: linear-gradient(135deg, #16a34a, #15803d);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    width: 120px;
+    margin: 0 auto;
+}
+
+.award-icon {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.award-text {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.award-subtext {
+    font-size: 0.8rem;
+    opacity: 0.9;
 }
 
 .award-item p {
