@@ -1,0 +1,88 @@
+# GitHub Pages Configuration for GTA Toronto Pest Control Website
+
+# Site settings
+title: "GTA Toronto Pest Control"
+description: "Professional pest control services in Toronto and GTA. Fast, affordable, guaranteed results."
+url: "https://6ixstack.github.io"
+baseurl: "/gtapestcontrol"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Plugins
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Collections
+collections_dir: collections
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
+  - gemfiles
+  - .git
+  - .gitignore
+
+# Include files
+include:
+  - _pages
+
+# Default layouts
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+# SEO settings
+author: "Mohaimen Khan - 6ixStack Solutions"
+logo: "/gtapestcontrol/logo.svg"
+
+# Social media
+social:
+  name: "GTA Toronto Pest Control"
+  links:
+    - "https://www.facebook.com/gtatorontopestcontrol"
+    - "https://www.linkedin.com/company/gta-toronto-pest-control"
+    - "https://github.com/6ixstack"
+
+# Contact information
+phone: "(416) 907-4270"
+email: "info@gtatorontopestcontrol.ca"
+address: "Toronto, Ontario, Canada"
+
+# Business hours
+hours: "24/7 Emergency Service Available"
+
+# GitHub Pages specific settings
+repository: "6ixstack/gtapestcontrol"
+github_username: "6ixstack"
+developer: "mohaimenhasan"
+
+# Timezone
+timezone: America/Toronto
+
+# Encoding
+encoding: utf-8
+
+# Sass settings
+sass:
+  style: compressed
+  sass_dir: _sass
+
+# Compression
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  ignore:
+    envs: development
