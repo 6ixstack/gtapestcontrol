@@ -148,33 +148,146 @@ document.addEventListener('DOMContentLoaded', function() {
     updateHeaderShadow(); // Initial call
 });
 
-// Intersection Observer for Animation on Scroll
+// Enhanced Intersection Observer for Animation on Scroll
 document.addEventListener('DOMContentLoaded', function() {
     // Only run animations if user hasn't requested reduced motion
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            rootMargin: '0px 0px -100px 0px'
         };
         
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
                     entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.style.transform = 'translateY(0) scale(1)';
                 }
             });
         }, observerOptions);
         
-        // Elements to animate
-        const animateElements = document.querySelectorAll('.service-card, .feature-item, .testimonial-card');
+        // Elements to animate with stagger effect
+        const animateElements = document.querySelectorAll('.service-card, .feature-item, .testimonial-card, .guarantee-item, .tip-item, .consideration-item');
         
-        animateElements.forEach(el => {
+        animateElements.forEach((el, index) => {
             el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            el.style.transform = 'translateY(40px) scale(0.95)';
+            el.style.transition = `opacity 0.8s ease ${index * 0.1}s, transform 0.8s ease ${index * 0.1}s`;
             observer.observe(el);
         });
+        
+        // Enhanced parallax effect for background elements
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.hero::after');
+            
+            parallaxElements.forEach(el => {
+                const speed = 0.3;
+                el.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+    }
+});
+
+// Advanced hover effects for interactive elements
+document.addEventListener('DOMContentLoaded', function() {
+    // Service cards magnetic hover effect
+    const serviceCards = document.querySelectorAll('.service-card');
+    
+    serviceCards.forEach(card => {
+        card.addEventListener('mousemove', function(e) {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            const moveX = (x / rect.width) * 20;
+            const moveY = (y / rect.height) * 20;
+            
+            card.style.transform = `translateY(-10px) scale(1.02) rotateX(${moveY * 0.1}deg) rotateY(${moveX * 0.1}deg)`;
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            card.style.transform = 'translateY(0) scale(1) rotateX(0deg) rotateY(0deg)';
+        });
+    });
+    
+    // Button ripple effect
+    const buttons = document.querySelectorAll('.btn');
+    
+    buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            const rect = button.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+            ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+            ripple.classList.add('ripple');
+            
+            button.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+    });
+});
+
+// Smooth number counting animation
+document.addEventListener('DOMContentLoaded', function() {
+    const countElements = document.querySelectorAll('[data-count]');
+    
+    const countObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const element = entry.target;
+                const finalCount = parseInt(element.dataset.count);
+                let currentCount = 0;
+                const increment = finalCount / 100;
+                
+                const timer = setInterval(() => {
+                    currentCount += increment;
+                    element.textContent = Math.floor(currentCount);
+                    
+                    if (currentCount >= finalCount) {
+                        element.textContent = finalCount;
+                        clearInterval(timer);
+                    }
+                }, 20);
+                
+                countObserver.unobserve(element);
+            }
+        });
+    });
+    
+    countElements.forEach(el => countObserver.observe(el));
+});
+
+// Dynamic background particles
+document.addEventListener('DOMContentLoaded', function() {
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const hero = document.querySelector('.hero');
+        const particleCount = 50;
+        
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.cssText = `
+                position: absolute;
+                width: ${Math.random() * 4 + 1}px;
+                height: ${Math.random() * 4 + 1}px;
+                background: rgba(16, 185, 129, ${Math.random() * 0.3 + 0.1});
+                border-radius: 50%;
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+                animation: float-particle ${Math.random() * 20 + 10}s infinite linear;
+                z-index: 1;
+            `;
+            
+            hero.appendChild(particle);
+        }
     }
 });
 

@@ -1,12 +1,32 @@
 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="20" cy="20" r="18" fill="#16a34a" stroke="#15803d" stroke-width="2"/>
-  <path d="M15 12 L25 12 L25 16 L15 16 Z" fill="white"/>
-  <circle cx="18" cy="14" r="1" fill="#15803d"/>
-  <circle cx="22" cy="14" r="1" fill="#15803d"/>
-  <path d="M12 20 Q20 16 28 20 Q20 24 12 20" fill="white"/>
-  <circle cx="16" cy="22" r="1.5" fill="#15803d"/>
-  <circle cx="20" cy="20" r="1.5" fill="#15803d"/>
-  <circle cx="24" cy="22" r="1.5" fill="#15803d"/>
-  <path d="M14 28 L26 28 L24 32 L16 32 Z" fill="white"/>
-  <rect x="19" y="28" width="2" height="4" fill="#15803d"/>
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#059669;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Shield background -->
+  <path d="M20 2L35 8V20C35 28.5 28.5 36 20 38C11.5 36 5 28.5 5 20V8L20 2Z" fill="url(#logoGradient)" stroke="#047857" stroke-width="1"/>
+  
+  <!-- Bug/pest icon -->
+  <ellipse cx="20" cy="18" rx="8" ry="5" fill="#ffffff" opacity="0.9"/>
+  <ellipse cx="20" cy="22" rx="6" ry="4" fill="#ffffff" opacity="0.8"/>
+  <ellipse cx="20" cy="25" rx="4" ry="3" fill="#ffffff" opacity="0.7"/>
+  
+  <!-- Antennae -->
+  <line x1="16" y1="14" x2="14" y2="10" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="24" y1="14" x2="26" y2="10" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="14" cy="10" r="1" fill="#ffffff"/>
+  <circle cx="26" cy="10" r="1" fill="#ffffff"/>
+  
+  <!-- Legs -->
+  <line x1="12" y1="20" x2="8" y2="22" stroke="#ffffff" stroke-width="1" stroke-linecap="round"/>
+  <line x1="12" y1="24" x2="8" y2="28" stroke="#ffffff" stroke-width="1" stroke-linecap="round"/>
+  <line x1="28" y1="20" x2="32" y2="22" stroke="#ffffff" stroke-width="1" stroke-linecap="round"/>
+  <line x1="28" y1="24" x2="32" y2="28" stroke="#ffffff" stroke-width="1" stroke-linecap="round"/>
+  
+  <!-- X mark over bug (elimination symbol) -->
+  <line x1="15" y1="16" x2="25" y2="26" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="25" y1="16" x2="15" y2="26" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round"/>
 </svg>
