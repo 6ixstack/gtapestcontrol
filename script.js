@@ -291,6 +291,48 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Interactive Map Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const mapAreas = document.querySelectorAll('.map-area');
+    const tooltip = document.getElementById('map-tooltip');
+    const tooltipArea = document.getElementById('tooltip-area');
+    
+    if (mapAreas.length > 0 && tooltip) {
+        mapAreas.forEach(area => {
+            area.addEventListener('mouseenter', function(e) {
+                const areaName = this.getAttribute('data-area');
+                tooltipArea.textContent = areaName;
+                tooltip.classList.add('show');
+                
+                // Position tooltip near cursor
+                const rect = this.getBoundingClientRect();
+                const mapRect = document.querySelector('.gta-map').getBoundingClientRect();
+                
+                tooltip.style.left = (rect.left - mapRect.left + rect.width / 2 - tooltip.offsetWidth / 2) + 'px';
+                tooltip.style.top = (rect.top - mapRect.top - tooltip.offsetHeight - 10) + 'px';
+            });
+            
+            area.addEventListener('mouseleave', function() {
+                tooltip.classList.remove('show');
+            });
+            
+            area.addEventListener('click', function() {
+                const areaName = this.getAttribute('data-area');
+                // Track area clicks
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'map_area_click', {
+                        'event_category': 'engagement',
+                        'event_label': areaName
+                    });
+                }
+                
+                // Scroll to contact form
+                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    }
+});
+
 // Form Field Focus Enhancement
 document.addEventListener('DOMContentLoaded', function() {
     const formFields = document.querySelectorAll('.form-input, .form-select, .form-textarea');
