@@ -4,7 +4,7 @@ A modern, mobile-first, SEO-optimized website for GTA Toronto Pest Control, desi
 
 🔗 **Live Demo**: [View on GitHub Pages](https://6ixstack.github.io/gtapestcontrol)
 
-## 🚀 Quick Deploy to GitHub Pages
+## 🚀 Quick Deploy to GitHub Pages.
 
 This repository is configured for **automatic deployment** to GitHub Pages. Just follow these steps:
 
